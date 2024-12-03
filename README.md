@@ -19,7 +19,19 @@ An example of a valid input formal is:
 ```
 where the first line is the number of subsets $k$, the second number is the maximal number of cuts $C$ and the folowing lines represent each vertex (first number) and it's neighbours (here, vertex $1$ is connected to vertices $2$ and $5$).
 
-The number of cuts must always be $\le k$ and it can only be equal if $|V| = k$.
+This particular example gives the following result:
+
+```
+Vertex 1 is in subset 3.
+Vertex 2 is in subset 1.
+Vertex 3 is in subset 2.
+Vertex 4 is in subset 1.
+Vertex 5 is in subset 1.
+Edge (1, 2) is a cut.
+Edge (1, 5) is a cut.
+Edge (2, 3) is a cut.
+Edge (3, 4) is a cut.
+```
 
 ### Encoding
 
