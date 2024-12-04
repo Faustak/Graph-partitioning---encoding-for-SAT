@@ -35,39 +35,50 @@ Edge (3, 4) is a cut.
 
 ### Encoding
 
-The problem is encoded using two sets of variables. Variables $Vertex(u, i)$ represent that vertex $u$ is in subset $i$. Variables $Cut(u, v)$ represent that there is an edge between vertices $u$ and $v$ that is a cut.
+The problem is encoded using two sets of variables. Variables $Vertex(u, i)$ represent that vertex $u$ is in subset $i$. Variables $Cut(e)$ represent that an edge $e(u, v)$ between vertices $u$ and $v$ is a cut.
 
 To represent the decision problem if there is a solution to partitioning a given graph into $k$ subsets with less than $c$ cuts, we use the following constrains:
 
 - Vertex $u$ is in at least one subset:
 
-    $\bigvee_{i<k} Vertex_{u,i}$
+    - $\bigvee_{i<k} Vertex(u,i)$
     
-    where $k$ represents the number of subsets.
+    - where $k$ represents the number of subsets.
 
 - Vertex $u$ is at most in one subset:
 
-    $\forall{\ (1\le i< j\le k)}:(\neg Vertex_{u,i} \vee \neg Vertex_{u,j})$
+    - $\forall{\ (1\le i< j\le k)}:(\neg Vertex(u,i) \vee \neg Vertex(u,j)$
 
-    where $j$ and $l$ represent subsets.
+    - where $j$ and $l$ represent subsets.
 
 - Every subset must be non-empty:
 
-    $\forall{i}:\ \bigvee_{u\in V} Vertex_{u,i}$
+    - $\forall{i}:\ \bigvee_{u\in V} Vertex(u,i)$
 
-    where $V$ represents the set of vertices in a graph.
+    - where $V$ represents the set of vertices in a graph.
 
 - Edge $e$ connecting vertices $u$ and $v$ is a cut, if and only if $u$ and $v$ are in different subsets:
 
-    $Cut(u,v) \leftrightarrow \bigvee_{i < k} (Vertex(u, i) \land \neg Vertex(v, i))$ 
+    - If $u$ and $v$ are in the same subset, the edge $e(u, v)$ is not a cut:
+
+        - $\forall _{i < k} \neg Vertex(u,i) \lor \neg Vertex(v, i) \lor \neg Cut(e)$
     
+    - If $u$ is in subset $i$ and $v$ is not, the edge $e(u, v)$ is a cut:
+
+        - $\forall _{i < k} \neg Vertex(u, i) \lor Vertex(v, i) \lor Cut(e)$
+    
+    - If $v$ is in subset $i$ and $u$ is not, the edge $e(u, v)$ is a cut:
+
+        - $\forall _{i < k} Vertex(u, i) \lor \neg Vertex(v, i) \lor Cut(e)$
+    - for all edges
+
     where $k$ represents the number of subsets.
 
 - The number of cuts $\le C$:
 
-    $\forall (M\subseteq E, |M| = C + 1):\bigvee_{e \in M}\neg e$
+    - $\forall (M\subseteq E, |M| = C + 1):\bigvee_{e \in M}\neg Cut(e)$
 
-    where $E$ represents the set of edges in a graph.
+    - where $E$ represents the set of edges in a graph.
 
 ## User documentaion
 Basic usage:
@@ -82,6 +93,16 @@ Command-line options:
 * `-o OUTPUT`, `--output OUTPUT` : Output file for the DIMACS format (i.e. the CNF formula).
 * `-s SOLVER`, `--solver SOLVER` : The SAT solver to be used.
 *  `-v {0,1}`, `--verb {0,1}` :  Verbosity of the SAT solver used.
+
+## Example instances
+
+* `easy-4-vertices.in`
+* `easy-5-vertices.in`
+* `easy-5-vertices-UNSAT.in`: Two subsets with maximally 1 cut but every vertex is connected with two other vertices
+* `easy-12-vertices.in`
+* `hard-12-vertices.in`
+* `no-edges.in`
+* `no-edges-UNSAT.in`: Trying to find 6 non-empty subsets for 5 vertices without edges.
 
 ## Experiments
 
