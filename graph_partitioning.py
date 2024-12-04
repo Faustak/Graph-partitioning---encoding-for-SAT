@@ -59,10 +59,10 @@ def encode(vertices, edges):
     for e in edges:
         u, v = e
         for i in range(1, SUBSETS_COUNT + 1):
-            # If u and v are in the same subset, the edge is not a cut
+            # If u and v are in the same subset, the edge (u, v) is not a cut
             cnf.append([-vertex_in_setID(u, i), -vertex_in_setID(v, i), -edge_is_cutID(e, edges), 0])
             
-            # If u is in subset i and v is not, the edge is a cut
+            # If u is in subset i and v is not, the edge (u, v) is a cut
             cnf.append([-vertex_in_setID(u, i), vertex_in_setID(v, i), edge_is_cutID(e, edges), 0])
             
             # If v is in subset i and u is not, the edge is a cut
@@ -167,7 +167,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    vertices, edges = load_instance("input.txt")
+    vertices, edges = load_instance(args.input)
     cnf, vars_count = encode(vertices, edges)
     result = call_solver(cnf, vars_count, args.output, args.solver, args.verb)
     print_result(result, edges)

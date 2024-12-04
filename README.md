@@ -104,4 +104,4 @@ We focus on the graph from input hard-12-vertices.in and modulate the number of 
 | 11 | 9.20566 | Y |
 | 12 | 2.20215 | Y |
 
-![A plot of the results] (Plot.png)
+![A plot of the results] (plot.png)
