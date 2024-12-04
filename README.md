@@ -82,3 +82,26 @@ Command-line options:
 * `-o OUTPUT`, `--output OUTPUT` : Output file for the DIMACS format (i.e. the CNF formula).
 * `-s SOLVER`, `--solver SOLVER` : The SAT solver to be used.
 *  `-v {0,1}`, `--verb {0,1}` :  Verbosity of the SAT solver used.
+
+## Experiments
+
+Experiments were run on AMD Ryzen 7 5800H CPU (3.20 GHz) and 16 GB RAM on Ubuntu inside WSL2 (Windows 11). Time was measured by the SAT solver itself as real time.
+
+We focus on the graph from input hard-12-vertices.in and modulate the number of maximum cuts.
+
+| Max. cuts | Time (s) | Solvable? |
+| --------: | :------- | :-------: |
+| 1 | 0.00900578 | N |
+| 2 | 0.010942 | N |
+| 3 | 0.085937 | N |
+| 4 | 0.737128 | N |
+| 5 | 4.15099 | N |
+| 6 | 13.5369 | Y |
+| 7 | 30.341 | Y |
+| 8 | 43.4211 | Y |
+| 9 | 40.3026 | Y |
+| 10 |23.9989 | Y |
+| 11 | 9.20566 | Y |
+| 12 | 2.20215 | Y |
+
+![A plot of the results] (Plot.png)
