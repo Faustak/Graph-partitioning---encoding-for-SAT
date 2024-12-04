@@ -1,0 +1,6 @@
+/home/faustak/work/Graph-partitioning---encoding-for-SAT/CMakeFiles/glucose.dir
+/home/faustak/work/Graph-partitioning---encoding-for-SAT/CMakeFiles/glucose-simp.dir
+/home/faustak/work/Graph-partitioning---encoding-for-SAT/CMakeFiles/glucosep.dir
+/home/faustak/work/Graph-partitioning---encoding-for-SAT/CMakeFiles/glucose-syrup.dir
+/home/faustak/work/Graph-partitioning---encoding-for-SAT/CMakeFiles/edit_cache.dir
+/home/faustak/work/Graph-partitioning---encoding-for-SAT/CMakeFiles/rebuild_cache.dir
