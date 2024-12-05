@@ -47,7 +47,7 @@ To represent the decision problem if there is a solution to partitioning a given
 
 - Vertex $u$ is at most in one subset:
 
-    - $\forall{\ (1\le i< j\le k)}:(\neg Vertex(u,i) \vee \neg Vertex(u,j)$
+    - $\forall{\ (1\le i< j\le k)}:(\neg Vertex(u,i) \vee \neg Vertex(u,j))$
 
     - where $j$ and $l$ represent subsets.
 
@@ -59,6 +59,7 @@ To represent the decision problem if there is a solution to partitioning a given
 
 - Edge $e$ connecting vertices $u$ and $v$ is a cut, if and only if $u$ and $v$ are in different subsets:
 
+    for all edges $e$:
     - If $u$ and $v$ are in the same subset, the edge $e(u, v)$ is not a cut:
 
         - $\forall _{i < k} \neg Vertex(u,i) \lor \neg Vertex(v, i) \lor \neg Cut(e)$
@@ -70,9 +71,8 @@ To represent the decision problem if there is a solution to partitioning a given
     - If $v$ is in subset $i$ and $u$ is not, the edge $e(u, v)$ is a cut:
 
         - $\forall _{i < k} Vertex(u, i) \lor \neg Vertex(v, i) \lor Cut(e)$
-    - for all edges
-
-    where $k$ represents the number of subsets.
+    
+        where $k$ represents the number of subsets.
 
 - The number of cuts $\le C$:
 
