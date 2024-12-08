@@ -37,7 +37,7 @@ Edge (3, 4) is a cut.
 
 The problem is encoded using two sets of variables. Variables $Vertex(u, i)$ represent that vertex $u$ is in subset $i$. Variables $Cut(e)$ represent that an edge $e(u, v)$ between vertices $u$ and $v$ is a cut.
 
-To represent the decision problem if there is a solution to partitioning a given graph into $k$ subsets with less than $c$ cuts, we use the following constrains:
+To represent the decision problem if there is a solution to partitioning a given graph into $k$ subsets with less than or equal to $c$ cuts, we use the following constrains:
 
 - Vertex $u$ is in at least one subset:
 
@@ -49,7 +49,7 @@ To represent the decision problem if there is a solution to partitioning a given
 
     - $\forall{\ (1\le i< j\le k)}:(\neg Vertex(u,i) \vee \neg Vertex(u,j))$
 
-    - where $j$ and $l$ represent subsets.
+    - where $i$ and $j$ represent subsets.
 
 - Every subset must be non-empty:
 
