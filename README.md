@@ -4,7 +4,7 @@
 
 ### Problem description
 
-The graph partitioning problem asks whether it is possible to partition a into $k$ subsets while minimising cuts (edges between the subsets) for a given graph and a $k > 0$.
+The graph partitioning problem asks whether it is possible to partition a graph into $k$ subsets while minimising cuts (edges between the subsets) for a given graph and a $k > 0$.
 
 An example of a valid input formal is:
 
